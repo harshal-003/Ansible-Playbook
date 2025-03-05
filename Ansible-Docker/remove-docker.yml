@@ -1,0 +1,12 @@
+- name: remove Docker on ubuntu server
+  hosts: all 
+  become: yes
+  tasks: 
+    - name: update apt cache  
+      apt:
+       update_cache: yes
+       
+    - name: remove docker
+      apt:
+        name: docker.io
+        state: absent

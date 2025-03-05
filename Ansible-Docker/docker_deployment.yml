@@ -1,0 +1,17 @@
+- name: Install Docker on ubuntu server
+  hosts: all 
+  become: yes
+  tasks: 
+    - name: update apt cache  
+      apt:
+       update_cache: yes
+       
+    - name: Install docker
+      apt:
+        name: docker.io
+        state: present 
+
+    # - name: Enable the Docker service
+    #   systemd: 
+    #   name: docker 
+    #   enabled: yes 
